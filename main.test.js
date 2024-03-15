@@ -1,35 +1,30 @@
-import { test, expect, describe } from "vitest";
+import { test, expect,  } from "vitest";
+import {findTheDaysInMonth} from "/main.js";
 
-// defining the value of each Month in an array
-const monthDays = [
-    ['January', 31]
-    ['February', 28]
-    ['March', 31]
-    ['April', 30]
-    ['May', 31]
-    ['June', 30]
-    ['July', 31]
-    ['August', 31]
-    ['September', 30]
-    ['October', 31]
-    ['November', 30]
-    ['December', 31]
-];
+ const monthDays = [
+    {month: "January", days: 31},
+    {month: "February", days: 28},
+    {month: "March", days: 31},
+    {month: "April", days: 30},
+    {month: "May", days: 31},
+    {month: "June", days: 30},
+    {month: "July", days: 31},
+    {month: "August", days: 31},
+    {month: "September", days: 30},
+    {month: "October", days: 31},
+    {month: "November", days: 30},
+    {month: "December", days: 31},
+    {month: "someRandomMonth", days: undefined},
+   ];
 
-//test each month in the array to check that the number of days returned corresponds to the month
-describe('monthDays', function() {
-    // Test case for January
-    it('should return 31 for January', function() {
-        const result = monthDays("January");
-        expect(result).toBe(31);
-    })
-})
+// Define a test for finding out the number of days in a specific month
+ test("find out how many days in the specific month", () => {
+// Define the expected result   
+ const expected = [{month: "January", days: 31}, {month: "March", days: 31}, {month: "May", days: 31}, {month: "July", days: 31},
+ {month: "August", days: 31}, {month: "October", days: 31}, {month: "December", days: 31} ];
+// Execute the function and check the result
+ expect(findTheDaysInMonth(monthDays)).toStrictEqual(expected);
 
-
-//  // Test case for a non-existing month
-//  it('should return undefined for an unknown month', function() {
-//     const result = monthDays("SomeRandomMonth");
-//     expect(result).toBe(undefined);
-//  })
+ });
 
 
